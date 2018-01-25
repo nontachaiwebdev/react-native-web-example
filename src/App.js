@@ -1,21 +1,27 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { StyleSheet, View } from 'react-native-web';
+import Monitor from './Monitor'
+import ButtonPad from './ButtonPad'
 
 class App extends Component {
+
+  handleTabButton = (key) => {
+    console.log(key)
+  }
+
   render() {
+    const { handleTabButton } = this
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-      </div>
+      <View style={styles.box}>
+        <Monitor number={0} />
+        <ButtonPad onTabButton={handleTabButton} />
+      </View>
     );
   }
 }
+
+const styles = StyleSheet.create({
+  box: { width: 375, height: 667 }
+});
 
 export default App;
